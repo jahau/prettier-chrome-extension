@@ -14,6 +14,7 @@ module.exports = (env, argv) => ({
         : "./src/options/index.js"
   },
   module: {
+    noParse: /typescript/,
     rules: [
       {
         exclude: /node_modules/,
@@ -55,10 +56,5 @@ module.exports = (env, argv) => ({
       }
     ])
   ],
-  stats: {
-    warningsFilter:
-      // Remove after upgrading to Prettier 1.19
-      "require.extensions is not supported by webpack. Use a loader instead."
-  },
   watch: argv.mode === "development"
 });
